@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>52nd of our story💌</title>
+  <style>
+    /* Centering and background setup */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #e0f7fa; /* Light blue background */
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container for "52nd" text and letter */
+    .container {
+      text-align: center;
+    }
+
+    /* Hidden love letter */
+    .love-letter {
+      display: none;
+      margin-top: 20px;
+      color: #0d47a1; /* Deep blue for the love letter text */
+      font-size: 1.2em;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* Styled "52nd" text */
+    .text-52nd {
+      font-size: 5em;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 2px #0d47a1; /* Blue outline */
+      cursor: pointer;
+      transition: color 0.5s ease, transform 0.2s ease;
+    }
+
+    /* Beating animation */
+    .text-52nd.beating {
+      animation: heartbeat 0.5s ease infinite;
+    }
+
+    /* Filled blue "52nd" */
+    .text-52nd.full {
+      color: #0d47a1; /* Full blue color */
+      -webkit-text-stroke: 0; /* Remove outline */
+    }
+
+    /* Heartbeat animation */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Fade-in animation for love letter */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Show love letter */
+    .love-letter.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="text-52nd" onclick="fillText()">52nd of love and beyond.</div>
+  <div class="love-letter">
+    <p>To the love of my life,</p>
+    <p>Every beat of my heart echoes the love I feel for you. You are my sunshine on cloudy days, the warmth in my soul, and the joy in every moment.</p>
+    <p>Forever yours,</p>
+    <p><strong>Your Love</strong></p>
+  </div>
+</div>
+
+<script>
+  // Function to handle click animation and show love letter
+  function fillText() {
+    const textElement = document.querySelector('.text-52nd');
+    const letter = document.querySelector('.love-letter');
+
+    // Toggle heartbeat animation
+    textElement.classList.toggle('beating');
+
+    // Change to full blue after clicking to complete
+    if (!textElement.classList.contains('full')) {
+      setTimeout(() => {
+        textElement.classList.add('full');
+        textElement.classList.remove('beating');
+        letter.classList.add('show'); // Show love letter
+      }, 2000);
+    }
+  }
+</script>
+
+</body>
+</html>
